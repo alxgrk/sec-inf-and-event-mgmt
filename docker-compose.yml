@@ -1,0 +1,19 @@
+# Docker Compose file for ELK stack
+
+# Build with:
+# docker-compose build elk
+
+# Run with:
+# docker-compose up
+
+elk:
+  image: sebp/elk  
+  ports:
+    - "5601:5601"
+    - "9200:9200"
+    - "5044:5044"
+
+dummy-app:
+  build: ./DummyApp
+  ports:
+    - "8080:80"
