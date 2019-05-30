@@ -17,3 +17,5 @@ dummy-app:
   build: ./DummyApp
   ports:
     - "8080:80"
+  links: 
+    - elk
