@@ -19,3 +19,7 @@ filebeat:
       paths:
         - "/var/log/nginx/*.log"
       document_type: nginx-access
+    -
+      paths:
+        - "/var/log/syscalls.log"
+      document_type: syscalls

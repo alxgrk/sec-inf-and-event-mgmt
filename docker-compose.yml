@@ -19,3 +19,10 @@ dummy-app:
     - "8080:80"
   links: 
     - elk
+  volumes:
+    - ./logs/sysdig:/var/log/sysdig/
+
+#sysdig:
+#  image: sysdig/sysdig
+#  volumes:
+#    - ./logs/sysdig/:/var/log/sysdig/
