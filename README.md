@@ -16,3 +16,8 @@ Solution:
 ```
 sudo sysctl -w vm.max_map_count=262144
 ```
+
+# TODOS:
+ * den sysdig container zum laufen / sysdig auf dem nginx container installieren
+ * syscalls in ein file pipen (als `entrypoint: sudo sysdig -j > logs/sysdig/syscalls.log`) und per filebeat nach logstash senden
+ * dokument fertig schreiben

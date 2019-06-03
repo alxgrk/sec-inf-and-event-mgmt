@@ -22,7 +22,7 @@ dummy-app:
   volumes:
     - ./logs/sysdig:/var/log/sysdig/
 
-#sysdig:
-#  image: sysdig/sysdig
-#  volumes:
-#    - ./logs/sysdig/:/var/log/sysdig/
+sysdig:
+  image: sysdig/sysdig
+  volumes:
+    - ./logs/sysdig/:/var/log/sysdig/

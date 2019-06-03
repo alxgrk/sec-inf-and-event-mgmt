@@ -1,1 +1,2 @@
-/logs/*
+!*/logs/sysdig/placeholder
+logs/sysdig/syscalls.log
