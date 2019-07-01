@@ -1,28 +1,24 @@
-# Docker Compose file for ELK stack
+version: '2'
 
-# Build with:
-# docker-compose build elk
+services:
+  elk:
+    image: sebp/elk  
+    ports:
+      - "5601:5601"
+      - "9200:9200"
+      - "5044:5044"
 
-# Run with:
-# docker-compose up
+  filebeat:
+    build: ./Filebeat
+    image: secinf/filebeat 
+    links:
+      - elk
+    volumes:
+      - ./logs/sysdig:/var/log/sysdig/
 
-elk:
-  image: sebp/elk  
-  ports:
-    - "5601:5601"
-    - "9200:9200"
-    - "5044:5044"
+  dummy-app:
+    build: ./DummyApp
+    image: secinf/dummy-app
+    ports:
+      - "8080:80"
 
-dummy-app:
-  build: ./DummyApp
-  ports:
-    - "8080:80"
-  links: 
-    - elk
-  volumes:
-    - ./logs/sysdig:/var/log/sysdig/
-
-sysdig:
-  image: sysdig/sysdig
-  volumes:
-    - ./logs/sysdig/:/var/log/sysdig/
