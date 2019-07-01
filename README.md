@@ -23,4 +23,5 @@ Solution:
 ```
 sudo sysctl -w vm.max_map_count=262144
 ```
-
+## TODO
+ - refresh index mapping after a the first document was sent (warning can be found in kibana)

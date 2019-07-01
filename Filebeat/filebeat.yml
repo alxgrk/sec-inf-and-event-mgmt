@@ -10,12 +10,11 @@ output:
 
 filebeat:
   inputs:
-    -
+    - type: log
       paths:
         - /var/log/syslog
         - /var/log/auth.log
-      document_type: syslog
-    -
+    - type: log
       paths:
         - "/var/log/sysdig/syscalls.log"
-      document_type: syscalls
+      json.keys_under_root: true
