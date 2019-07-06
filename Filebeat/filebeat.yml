@@ -18,3 +18,8 @@ filebeat:
       paths:
         - "/var/log/sysdig/syscalls.log"
       json.keys_under_root: true
+      processors:
+        - script:
+            lang: javascript
+            id: sysdig_event_processor
+            file: ${path.config}/sysdig_event_processor.js

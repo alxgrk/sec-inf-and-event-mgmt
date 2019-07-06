@@ -1,218 +1,312 @@
 {
-  "properties": {
-    "@timestamp": {
-      "type": "date"
-    },
-    "@version": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword",
-          "ignore_above": 256
-        }
-      }
-    },
-    "agent": {
-      "properties": {
-        "ephemeral_id": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
+    "properties":{
+       "@timestamp":{
+          "type":"date"
+       },
+       "@version":{
+          "type":"text",
+          "fields":{
+             "keyword":{
+                "type":"keyword",
+                "ignore_above":256
+             }
           }
-        },
-        "hostname": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        },
-        "id": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        },
-        "type": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        },
-        "version": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        }
-      }
-    },
-    "container": {
-      "properties": {
-        "id": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        },
-        "name": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        }
-      }
-    },
-    "ecs": {
-      "properties": {
-        "version": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        }
-      }
-    },
-    "evt": {
-      "properties": {
-        "cpu": {
-          "type": "long"
-        },
-        "dir": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        },
-        "info": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        },
-        "num": {
-          "type": "long"
-        },
-        "outputtime": {
-          "type": "long"
-        },
-        "type": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        }
-      }
-    },
-    "host": {
-      "properties": {
-        "name": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        }
-      }
-    },
-    "input": {
-      "properties": {
-        "type": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        }
-      }
-    },
-    "log": {
-      "properties": {
-        "file": {
-          "properties": {
-            "path": {
-              "type": "text",
-              "fields": {
-                "keyword": {
-                  "type": "keyword",
-                  "ignore_above": 256
+       },
+       "agent":{
+          "properties":{
+             "ephemeral_id":{
+                "type":"text",
+                "fields":{
+                   "keyword":{
+                      "type":"keyword",
+                      "ignore_above":256
+                   }
                 }
-              }
-            }
+             },
+             "hostname":{
+                "type":"text",
+                "fields":{
+                   "keyword":{
+                      "type":"keyword",
+                      "ignore_above":256
+                   }
+                }
+             },
+             "id":{
+                "type":"text",
+                "fields":{
+                   "keyword":{
+                      "type":"keyword",
+                      "ignore_above":256
+                   }
+                }
+             },
+             "type":{
+                "type":"text",
+                "fields":{
+                   "keyword":{
+                      "type":"keyword",
+                      "ignore_above":256
+                   }
+                }
+             },
+             "version":{
+                "type":"text",
+                "fields":{
+                   "keyword":{
+                      "type":"keyword",
+                      "ignore_above":256
+                   }
+                }
+             }
           }
-        },
-        "offset": {
-          "type": "long"
-        }
-      }
-    },
-    "proc": {
-      "properties": {
-        "name": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
+       },
+       "container":{
+          "properties":{
+             "id":{
+                "type":"text",
+                "fields":{
+                   "keyword":{
+                      "type":"keyword",
+                      "ignore_above":256
+                   }
+                }
+             },
+             "name":{
+                "type":"text",
+                "fields":{
+                   "keyword":{
+                      "type":"keyword",
+                      "ignore_above":256
+                   }
+                }
+             }
           }
-        }
-      }
-    },
-    "tags": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword",
-          "ignore_above": 256
-        }
-      }
-    },
-    "thread": {
-      "properties": {
-        "tid": {
-          "type": "long"
-        },
-        "vtid": {
-          "type": "long"
-        }
-      }
+       },
+       "ecs":{
+          "properties":{
+             "version":{
+                "type":"text",
+                "fields":{
+                   "keyword":{
+                      "type":"keyword",
+                      "ignore_above":256
+                   }
+                }
+             }
+          }
+       },
+       "evt":{
+          "properties":{
+             "cpu":{
+                "type":"long"
+             },
+             "dir":{
+                "type":"text",
+                "fields":{
+                   "keyword":{
+                      "type":"keyword",
+                      "ignore_above":256
+                   }
+                }
+             },
+             "info":{
+                "type":"text",
+                "fields":{
+                   "keyword":{
+                      "type":"keyword",
+                      "ignore_above":256
+                   }
+                }
+             },
+             "infoExpanded":{
+                "properties":{
+                   "fd":{
+                      "type":"text",
+                      "fields":{
+                         "keyword":{
+                            "type":"keyword",
+                            "ignore_above":256
+                         }
+                      }
+                   },
+                   "interval":{
+                      "type":"text",
+                      "fields":{
+                         "keyword":{
+                            "type":"keyword",
+                            "ignore_above":256
+                         }
+                      }
+                   },
+                   "json":{
+                      "type":"text",
+                      "fields":{
+                         "keyword":{
+                            "type":"keyword",
+                            "ignore_above":256
+                         }
+                      }
+                   },
+                   "next":{
+                      "type":"text",
+                      "fields":{
+                         "keyword":{
+                            "type":"keyword",
+                            "ignore_above":256
+                         }
+                      }
+                   },
+                   "pgft_maj":{
+                      "type":"text",
+                      "fields":{
+                         "keyword":{
+                            "type":"keyword",
+                            "ignore_above":256
+                         }
+                      }
+                   },
+                   "pgft_min":{
+                      "type":"text",
+                      "fields":{
+                         "keyword":{
+                            "type":"keyword",
+                            "ignore_above":256
+                         }
+                      }
+                   },
+                   "res":{
+                      "type":"text",
+                      "fields":{
+                         "keyword":{
+                            "type":"keyword",
+                            "ignore_above":256
+                         }
+                      }
+                   },
+                   "vm_rss":{
+                      "type":"text",
+                      "fields":{
+                         "keyword":{
+                            "type":"keyword",
+                            "ignore_above":256
+                         }
+                      }
+                   },
+                   "vm_size":{
+                      "type":"text",
+                      "fields":{
+                         "keyword":{
+                            "type":"keyword",
+                            "ignore_above":256
+                         }
+                      }
+                   },
+                   "vm_swap":{
+                      "type":"text",
+                      "fields":{
+                         "keyword":{
+                            "type":"keyword",
+                            "ignore_above":256
+                         }
+                      }
+                   }
+                }
+             },
+             "num":{
+                "type":"long"
+             },
+             "outputtime":{
+                "type":"date"
+             },
+             "type":{
+                "type":"text",
+                "fields":{
+                   "keyword":{
+                      "type":"keyword",
+                      "ignore_above":256
+                   }
+                }
+             }
+          }
+       },
+       "host":{
+          "properties":{
+             "name":{
+                "type":"text",
+                "fields":{
+                   "keyword":{
+                      "type":"keyword",
+                      "ignore_above":256
+                   }
+                }
+             }
+          }
+       },
+       "input":{
+          "properties":{
+             "type":{
+                "type":"text",
+                "fields":{
+                   "keyword":{
+                      "type":"keyword",
+                      "ignore_above":256
+                   }
+                }
+             }
+          }
+       },
+       "log":{
+          "properties":{
+             "file":{
+                "properties":{
+                   "path":{
+                      "type":"text",
+                      "fields":{
+                         "keyword":{
+                            "type":"keyword",
+                            "ignore_above":256
+                         }
+                      }
+                   }
+                }
+             },
+             "offset":{
+                "type":"long"
+             }
+          }
+       },
+       "proc":{
+          "properties":{
+             "name":{
+                "type":"text",
+                "fields":{
+                   "keyword":{
+                      "type":"keyword",
+                      "ignore_above":256
+                   }
+                }
+             }
+          }
+       },
+       "tags":{
+          "type":"text",
+          "fields":{
+             "keyword":{
+                "type":"keyword",
+                "ignore_above":256
+             }
+          }
+       },
+       "thread":{
+          "properties":{
+             "tid":{
+                "type":"long"
+             },
+             "vtid":{
+                "type":"long"
+             }
+          }
+       }
     }
-  }
 }
