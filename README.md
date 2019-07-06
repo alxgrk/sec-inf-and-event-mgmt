@@ -6,6 +6,10 @@ To run the whole system at once, simply call
 ```bash
  $ ./run.sh
 ```
+If you want sysdig to track syscalls, simply add
+```bash
+ $ ./run.sh --track
+```
 This will fix potential problems (see below), bring up all containers & watch their syscalls with sysdig.
 
 ## References
