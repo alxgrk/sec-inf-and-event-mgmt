@@ -39,7 +39,7 @@ curl --silent -w "\n" -X PUT http://localhost:9200/filebeat-default/_mappings -H
 
 # -------- CONFIGURING KIBANA --------
 echo "define the kibana index pattern: "
-KIBANA_INDEX_PATTERN_ID=$(curl --silent -w "\n" http://localhost:5601/api/saved_objects/index-pattern \
+KIBANA_INDEX_PATTERN_ID=$(curl --silent -w "\n" http://localhost:5601/api/saved_objects/index-pattern/8098fa00-9e67-11e9-a82b-7bda944bfa90?overwrite=true \
 	-H "Content-Type:application/json" \
 	-H "kbn-version:7.2.0" \
 	-d '{"attributes":{"title":"filebeat*","timeFieldName":"@timestamp"}}' \
