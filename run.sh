@@ -47,9 +47,17 @@ KIBANA_INDEX_PATTERN_ID=$(curl --silent -w "\n" http://localhost:5601/api/saved_
 echo "set this index pattern as default: "
 curl --silent -w "\n" http://localhost:5601/api/kibana/settings -H "Content-Type:application/json" -H "kbn-version:7.2.0" -d '{"changes":{"defaultIndex":'${KIBANA_INDEX_PATTERN_ID}'}}'
 
-echo "add visualizations: "
-curl --silent -w "\n" http://localhost:5601/api/saved_objects/_import -H kbn-version:7.2.0 --form file=@evt-type-pie-chart.ndjson
+echo "add visualizations & dashboard: "
+curl --silent -w "\n" http://localhost:5601/api/saved_objects/_import -H kbn-version:7.2.0 --form file=@dashboard_and_visualizations.ndjson
 
-[ $TRACK_SYSCALLS == true ] \
-    && echo "now running sysdig to log syscalls" \
-    && sudo sysdig -j -pc container.name=${TRACKED_CONTAINER} > logs/sysdig/syscalls.log
+if [ $TRACK_SYSCALLS == true ]
+then
+    echo "now running sysdig to log syscalls";
+
+    # query the dummy app
+    trap "kill 0" EXIT
+    while true; do curl --silent localhost:8080 > /dev/null; sleep 0.5; done &
+
+    sudo sysdig -j -pc container.name=${TRACKED_CONTAINER} > logs/sysdig/syscalls.log 
+fi
+
