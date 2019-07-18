@@ -4,6 +4,12 @@
 
 TRACKED_CONTAINER=pratikum-sec-inf-and-event-mgmt_dummy-app_1
 
+if [ -z "$(which jq)" ]
+then
+    echo "please install 'jq' first (e.g. 'sudo apt install jq')"
+    exit 1
+fi
+
 if [ -n "$1" ] 
 then
     if [ "--track" != "$1" ]
@@ -58,6 +64,6 @@ then
     trap "kill 0" EXIT
     while true; do curl --silent localhost:8080 > /dev/null; sleep 0.5; done &
 
-    sudo sysdig -j -pc container.name=${TRACKED_CONTAINER} > logs/sysdig/syscalls.log 
+    sudo sysdig -j -s 8000 -pc container.name=${TRACKED_CONTAINER} > logs/sysdig/syscalls.log 
 fi
 
