@@ -2,7 +2,7 @@
 
 # set -x
 
-TRACKED_CONTAINER=pratikum-sec-inf-and-event-mgmt_dummy-app_1
+TRACKED_CONTAINER=dvwa-sql-app_victim_1 #${1:-pratikum-sec-inf-and-event-mgmt_dummy-app_1}
 
 if [ -z "$(which jq)" ]
 then
@@ -44,12 +44,12 @@ echo "define index mapping: "
 curl --silent -w "\n" -X PUT http://localhost:9200/filebeat-default/_mappings -H "Content-Type:application/json" -d@elasticsearch-default-filebeat-mapping.json
 
 # -------- CONFIGURING KIBANA --------
-echo "define the kibana index pattern: "
-KIBANA_INDEX_PATTERN_ID=$(curl --silent -w "\n" http://localhost:5601/api/saved_objects/index-pattern/8098fa00-9e67-11e9-a82b-7bda944bfa90?overwrite=true \
+KIBANA_INDEX_PATTERN_ID=8098fa00-9e67-11e9-a82b-7bda944bfa90
+echo "define the kibana index pattern with id $KIBANA_INDEX_PATTERN_ID: "
+curl --silent -w "\n" http://localhost:5601/api/saved_objects/index-pattern/8098fa00-9e67-11e9-a82b-7bda944bfa90?overwrite=true \
 	-H "Content-Type:application/json" \
 	-H "kbn-version:7.2.0" \
-	-d '{"attributes":{"title":"filebeat*","timeFieldName":"@timestamp"}}' \
-	| jq '.id')
+	-d '{"attributes":{"title":"filebeat*","timeFieldName":"@timestamp"}}'
 echo "set this index pattern as default: "
 curl --silent -w "\n" http://localhost:5601/api/kibana/settings -H "Content-Type:application/json" -H "kbn-version:7.2.0" -d '{"changes":{"defaultIndex":'${KIBANA_INDEX_PATTERN_ID}'}}'
 
