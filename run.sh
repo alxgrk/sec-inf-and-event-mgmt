@@ -54,7 +54,7 @@ echo "set this index pattern as default: "
 curl --silent -w "\n" http://localhost:5601/api/kibana/settings -H "Content-Type:application/json" -H "kbn-version:7.2.0" -d '{"changes":{"defaultIndex":'${KIBANA_INDEX_PATTERN_ID}'}}'
 
 echo "add visualizations & dashboard: "
-curl --silent -w "\n" http://localhost:5601/api/saved_objects/_import -H kbn-version:7.2.0 --form file=@dashboard_and_visualizations.ndjson
+curl --silent -w "\n" http://localhost:5601/api/saved_objects/_import?overwrite=true -H kbn-version:7.2.0 --form file=@dashboard_and_visualizations.ndjson
 
 if [ $TRACK_SYSCALLS == true ]
 then
