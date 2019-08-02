@@ -6,24 +6,24 @@ services:
         ports:
             - "80:80"
         networks:
-            mynet:
+            dvwanet:
                 ipv4_address: 172.25.0.2
 
     client:
         build: "./client"
         scale: 3
         networks:
-            - mynet
+            - dvwanet
 
 
     attacker:
         build: "./attacker"
         scale: 0
         networks:
-            - mynet
+            - dvwanet
 
 networks:
-    mynet:
+    dvwanet:
         driver: bridge
         ipam:
             config:

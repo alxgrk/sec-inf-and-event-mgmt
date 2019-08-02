@@ -68,6 +68,9 @@ main() {
 
 sanity_checks() {
 
+    # remove old log file
+    rm $(dirname $0)/logs/sysdig/syscalls.log 2> /dev/null
+
     # check if 'jq' is installed
     if [ -z "$(which jq)" ]
     then

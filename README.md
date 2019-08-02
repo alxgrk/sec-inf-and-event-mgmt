@@ -15,3 +15,13 @@ This will fix potential problems (see below), bring up all containers & watch th
 ## References
 The setup is heavily based on https://elk-docker.readthedocs.io/
 
+## Troubleshooting
+
+### Segmentation fault
+
+For some reason it is sometimes happening, that sysdig is exiting with an error mentioning a Segmentation Fault.
+Couldn't figure out, why this happens, but stopping all containers helps:
+```
+ $ docker-compose down
+ $ docker-compose -f dvwa-app/docker-compose.yml down
+```

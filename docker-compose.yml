@@ -22,5 +22,5 @@ services:
     build: ./DummyApp
     image: secinf/dummy-app
     ports:
-      - "8080:80"
+      - "8081:8081"
 

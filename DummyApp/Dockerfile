@@ -4,7 +4,7 @@ FROM nginx
 RUN rm /var/log/nginx/access.log /var/log/nginx/error.log
 
 ### add dummy HTML file
-
+ADD ./default.conf /etc/nginx/conf.d/default.conf
 COPY html /usr/share/nginx/html
 
 
