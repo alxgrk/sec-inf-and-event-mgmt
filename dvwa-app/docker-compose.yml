@@ -1,0 +1,30 @@
+version: "2.3"
+
+services:
+    victim:
+        build: "./victim"
+        ports:
+            - "80:80"
+        networks:
+            mynet:
+                ipv4_address: 172.25.0.2
+
+    client:
+        build: "./client"
+        scale: 3
+        networks:
+            - mynet
+
+
+    attacker:
+        build: "./attacker"
+        scale: 0
+        networks:
+            - mynet
+
+networks:
+    mynet:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.25.0.0/24

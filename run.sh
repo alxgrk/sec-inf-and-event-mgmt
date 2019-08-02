@@ -20,6 +20,8 @@ do
 done
 
 main() {
+    docker-compose -f ./dvwa-app/docker-compose.yml up --build --scale attacker=0
+
     docker-compose up -d --build
     # waiting for ELK to be up and running
     until [[ -n "$(curl --silent -w "\n" http://localhost:9200/_cat/indices)" \
