@@ -5,26 +5,16 @@ services:
         build: "./victim"
         ports:
             - "80:80"
-        networks:
-            dvwanet:
-                ipv4_address: 172.25.0.2
 
     client:
         build: "./client"
         scale: 3
-        networks:
-            - dvwanet
-
+        links:
+          - victim
 
     attacker:
         build: "./attacker"
         scale: 0
-        networks:
-            - dvwanet
+        links:
+          - victim
 
-networks:
-    dvwanet:
-        driver: bridge
-        ipam:
-            config:
-                - subnet: 172.25.0.0/24
