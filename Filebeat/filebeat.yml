@@ -3,14 +3,11 @@ output:
     enabled: true
     hosts:
       - elk:5044
-    timeout: 15
+    index: filebeat-default
+    timeout: 60
 
 filebeat:
   inputs:
-    - type: log
-      paths:
-        - /var/log/syslog
-        - /var/log/auth.log
     - type: log
       paths:
         - "/var/log/sysdig/syscalls.log"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+# set -x
 
 # default values
 DUMMY_APP=pratikum-sec-inf-and-event-mgmt_dummy-app_1
