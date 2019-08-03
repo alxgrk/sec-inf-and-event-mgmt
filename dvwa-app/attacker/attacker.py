@@ -131,7 +131,7 @@ def log_off():
     changes client_state to logged_off
     """
     global client_state
-    logging.info('logut...')
+    logging.info('logout...')
     browser.find_element_by_link_text('Logout').click()
     logging.info('    logged out')
     client_state = logged_off

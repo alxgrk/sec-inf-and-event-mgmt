@@ -37,9 +37,6 @@ chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument('--ignore-certificate-errors')
 browser = webdriver.Chrome(chrome_options=chrome_options)
 
-# probability to log off:
-prob_log_off = 0.05
-
 # probability to enter valid input into the sql_injection form
 sqli_valid_input_probability = 0.75
 # if no valid value is send, whats the probability of it been a random string
@@ -98,13 +95,9 @@ def normal_step(arg):
     # is the client logged in?
     # yes, its logged in
     if client_state == logged_in:
-        # decide what to do:
-        x = np.random.random()
-        if x <= prob_log_off:
-            log_off()
-        else:
-            follow_link()
-            do_things()
+        # do some random stuff, but never log out
+        follow_link()
+        do_things()
     # no, its not logged in:
     else:
         log_in()
@@ -174,19 +167,6 @@ def log_in():
     browser.find_element_by_name('Login').click()
     logging.info('    logged in')
     client_state = logged_in
-
-
-def log_off():
-    """
-    logs the current user out from dvwa
-    changes client_state to logged_off
-    """
-    global client_state
-    logging.info('logut...')
-    browser.find_element_by_link_text('Logout').click()
-    logging.info('    logged out')
-    client_state = logged_off
-
 
 def uniform_K():
     """
