@@ -18,10 +18,10 @@ function process(event) {
   var evtInfo = event.Get("evt")["info"]
   if (evtInfo !== null && evtInfo !== "") {
     evtInfo.split(" ").forEach(function(kvPair) {
-      if (kvPair.indexOf("=") !== -1) {
-        var splitted = kvPair.split("=")
-        var key = splitted[0];
-        var value = splitted[1];
+      var equalityPosition = kvPair.indexOf("=")
+      if (equalityPosition !== -1) {
+        var key = kvPair.substring(0, equalityPosition)
+        var value = kvPair.substring(equalityPosition + 1)
         if (key != "" && value != "") {
             event.Put("evt.infoExpanded." + key, value)
         }

@@ -68,7 +68,7 @@ main() {
         #  * in JSON format (-j)
         #  * replace port numbers by names were possible (-R, e.g. mysql port)
         #  * encode binary data as base64 (-b, e.g. evt.info.data field)
-        sudo sysdig -bRj -s 4000 -pc container.name=${TRACKED_CONTAINER} > logs/sysdig/syscalls.log
+        sudo sysdig -bRj -s 1000 -pc container.name=${TRACKED_CONTAINER} > logs/sysdig/syscalls.log
     fi
 }
 
