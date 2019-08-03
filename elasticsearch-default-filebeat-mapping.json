@@ -1,312 +1,708 @@
 {
-    "properties":{
-       "@timestamp":{
-          "type":"date"
-       },
-       "@version":{
-          "type":"text",
-          "fields":{
-             "keyword":{
-                "type":"keyword",
-                "ignore_above":256
-             }
+    "properties": {
+      "@timestamp": {
+        "type": "date"
+      },
+      "@version": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
           }
-       },
-       "agent":{
-          "properties":{
-             "ephemeral_id":{
-                "type":"text",
-                "fields":{
-                   "keyword":{
-                      "type":"keyword",
-                      "ignore_above":256
-                   }
-                }
-             },
-             "hostname":{
-                "type":"text",
-                "fields":{
-                   "keyword":{
-                      "type":"keyword",
-                      "ignore_above":256
-                   }
-                }
-             },
-             "id":{
-                "type":"text",
-                "fields":{
-                   "keyword":{
-                      "type":"keyword",
-                      "ignore_above":256
-                   }
-                }
-             },
-             "type":{
-                "type":"text",
-                "fields":{
-                   "keyword":{
-                      "type":"keyword",
-                      "ignore_above":256
-                   }
-                }
-             },
-             "version":{
-                "type":"text",
-                "fields":{
-                   "keyword":{
-                      "type":"keyword",
-                      "ignore_above":256
-                   }
-                }
-             }
+        }
+      },
+      "agent": {
+        "properties": {
+          "ephemeral_id": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "hostname": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "id": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "type": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "version": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
           }
-       },
-       "container":{
-          "properties":{
-             "id":{
-                "type":"text",
-                "fields":{
-                   "keyword":{
-                      "type":"keyword",
-                      "ignore_above":256
-                   }
-                }
-             },
-             "name":{
-                "type":"text",
-                "fields":{
-                   "keyword":{
-                      "type":"keyword",
-                      "ignore_above":256
-                   }
-                }
-             }
+        }
+      },
+      "container": {
+        "properties": {
+          "id": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "name": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
           }
-       },
-       "ecs":{
-          "properties":{
-             "version":{
-                "type":"text",
-                "fields":{
-                   "keyword":{
-                      "type":"keyword",
-                      "ignore_above":256
-                   }
-                }
-             }
+        }
+      },
+      "ecs": {
+        "properties": {
+          "version": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
           }
-       },
-       "evt":{
-          "properties":{
-             "cpu":{
-                "type":"long"
-             },
-             "dir":{
-                "type":"text",
-                "fields":{
-                   "keyword":{
-                      "type":"keyword",
-                      "ignore_above":256
-                   }
+        }
+      },
+      "evt": {
+        "properties": {
+          "cpu": {
+            "type": "long"
+          },
+          "dir": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "info": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "infoExpanded": {
+            "properties": {
+              "addr": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
                 }
-             },
-             "info":{
-                "type":"text",
-                "fields":{
-                   "keyword":{
-                      "type":"keyword",
-                      "ignore_above":256
-                   }
+              },
+              "args": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
                 }
-             },
-             "infoExpanded":{
-                "properties":{
-                   "fd":{
-                      "type":"text",
-                      "fields":{
-                         "keyword":{
-                            "type":"keyword",
-                            "ignore_above":256
-                         }
-                      }
-                   },
-                   "interval":{
-                      "type":"text",
-                      "fields":{
-                         "keyword":{
-                            "type":"keyword",
-                            "ignore_above":256
-                         }
-                      }
-                   },
-                   "json":{
-                      "type":"text",
-                      "fields":{
-                         "keyword":{
-                            "type":"keyword",
-                            "ignore_above":256
-                         }
-                      }
-                   },
-                   "next":{
-                      "type":"text",
-                      "fields":{
-                         "keyword":{
-                            "type":"keyword",
-                            "ignore_above":256
-                         }
-                      }
-                   },
-                   "pgft_maj":{
-                      "type":"text",
-                      "fields":{
-                         "keyword":{
-                            "type":"keyword",
-                            "ignore_above":256
-                         }
-                      }
-                   },
-                   "pgft_min":{
-                      "type":"text",
-                      "fields":{
-                         "keyword":{
-                            "type":"keyword",
-                            "ignore_above":256
-                         }
-                      }
-                   },
-                   "res":{
-                      "type":"text",
-                      "fields":{
-                         "keyword":{
-                            "type":"keyword",
-                            "ignore_above":256
-                         }
-                      }
-                   },
-                   "vm_rss":{
-                      "type":"text",
-                      "fields":{
-                         "keyword":{
-                            "type":"keyword",
-                            "ignore_above":256
-                         }
-                      }
-                   },
-                   "vm_size":{
-                      "type":"text",
-                      "fields":{
-                         "keyword":{
-                            "type":"keyword",
-                            "ignore_above":256
-                         }
-                      }
-                   },
-                   "vm_swap":{
-                      "type":"text",
-                      "fields":{
-                         "keyword":{
-                            "type":"keyword",
-                            "ignore_above":256
-                         }
-                      }
-                   }
+              },
+              "cgroups": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
                 }
-             },
-             "num":{
-                "type":"long"
-             },
-             "outputtime":{
-                "type":"date"
-             },
-             "type":{
-                "type":"text",
-                "fields":{
-                   "keyword":{
-                      "type":"keyword",
-                      "ignore_above":256
-                   }
+              },
+              "cmd": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
                 }
-             }
+              },
+              "comm": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "data": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "dev": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "domain": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "euid": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "exe": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "fd": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "fdlimit": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "fds": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "flags": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "gid": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "how": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "interval": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "json": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "length": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "level": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "mode": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "name": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "next": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "offset": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "op": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "operation": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "optlen": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "optname": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "path": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "pgft_maj": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "pgft_min": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "pid": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "pos": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "prot": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "proto": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "ptid": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "queuelen": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "queuemax": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "queuepct": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "res": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "size": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "status": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "tid": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "timeout": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "tuple": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "type": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "uid": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "val": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "vm_rss": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "vm_size": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "vm_swap": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "vpid": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "vtid": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "whence": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              }
+            }
+          },
+          "num": {
+            "type": "long"
+          },
+          "outputtime": {
+            "type": "date"
+          },
+          "type": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
           }
-       },
-       "host":{
-          "properties":{
-             "name":{
-                "type":"text",
-                "fields":{
-                   "keyword":{
-                      "type":"keyword",
-                      "ignore_above":256
-                   }
+        }
+      },
+      "host": {
+        "properties": {
+          "name": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      },
+      "input": {
+        "properties": {
+          "type": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      },
+      "log": {
+        "properties": {
+          "file": {
+            "properties": {
+              "path": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
                 }
-             }
+              }
+            }
+          },
+          "offset": {
+            "type": "long"
           }
-       },
-       "input":{
-          "properties":{
-             "type":{
-                "type":"text",
-                "fields":{
-                   "keyword":{
-                      "type":"keyword",
-                      "ignore_above":256
-                   }
-                }
-             }
+        }
+      },
+      "proc": {
+        "properties": {
+          "name": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
           }
-       },
-       "log":{
-          "properties":{
-             "file":{
-                "properties":{
-                   "path":{
-                      "type":"text",
-                      "fields":{
-                         "keyword":{
-                            "type":"keyword",
-                            "ignore_above":256
-                         }
-                      }
-                   }
-                }
-             },
-             "offset":{
-                "type":"long"
-             }
+        }
+      },
+      "tags": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
           }
-       },
-       "proc":{
-          "properties":{
-             "name":{
-                "type":"text",
-                "fields":{
-                   "keyword":{
-                      "type":"keyword",
-                      "ignore_above":256
-                   }
-                }
-             }
+        }
+      },
+      "thread": {
+        "properties": {
+          "tid": {
+            "type": "long"
+          },
+          "vtid": {
+            "type": "long"
           }
-       },
-       "tags":{
-          "type":"text",
-          "fields":{
-             "keyword":{
-                "type":"keyword",
-                "ignore_above":256
-             }
-          }
-       },
-       "thread":{
-          "properties":{
-             "tid":{
-                "type":"long"
-             },
-             "vtid":{
-                "type":"long"
-             }
-          }
-       }
+        }
+      }
     }
 }
