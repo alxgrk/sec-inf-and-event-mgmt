@@ -231,6 +231,8 @@ def scheduler_sync(fn):
         # sleep off time
         sleep_until = block_end_time + off_time
         time_to_sleep = sleep_until - time.time()
+        if time_to_sleep < 0:
+            time_to_sleep = 1
         time.sleep(time_to_sleep)
 
 
