@@ -20,7 +20,11 @@ function process(event) {
     evtInfo.split(" ").forEach(function(kvPair) {
       if (kvPair.indexOf("=") !== -1) {
         var splitted = kvPair.split("=")
-        event.Put("evt.infoExpanded." + splitted[0], splitted[1])
+        var key = splitted[0];
+        var value = splitted[1];
+        if (key != "" && value != "") {
+            event.Put("evt.infoExpanded." + key, value)
+        }
       }
     })
   }

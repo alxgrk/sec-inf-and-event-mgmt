@@ -62,7 +62,12 @@ main() {
             while true; do curl --silent localhost:8080 > /dev/null; sleep 0.5; done &
         fi
 
-        sudo sysdig -j -s 8000 -pc container.name=${TRACKED_CONTAINER} > logs/sysdig/syscalls.log
+        # log syscalls:
+        #  * that are done by tracked container
+        #  * in JSON format (-j)
+        #  * replace port numbers by names were possible (-R, e.g. mysql port)
+        #  * encode binary data as base64 (-b, e.g. evt.info.data field)
+        sudo sysdig -bRj -s 8000 -pc container.name=${TRACKED_CONTAINER} > logs/sysdig/syscalls.log
     fi
 }
 

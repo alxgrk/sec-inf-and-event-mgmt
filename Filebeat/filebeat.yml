@@ -1,9 +1,9 @@
 output:
-  logstash:
+  elasticsearch:
     enabled: true
     hosts:
-      - elk:5044
-    index: filebeat-default
+      - elk:9200
+    #index: filebeat-default
     timeout: 60
 
 filebeat:

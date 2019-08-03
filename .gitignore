@@ -1,2 +1,5 @@
 !*/logs/sysdig/placeholder
 logs/sysdig/syscalls.log
+
+# IntelliJ
+.idea/
