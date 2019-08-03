@@ -8,9 +8,14 @@ To run the whole system at once, simply call this script with the container name
 ```
 If you don't want sysdig to track syscalls, simply add
 ```bash
- $ ./run.sh --notrack
+ $ ./run.sh --no-track
 ```
 This will fix potential problems (see below), bring up all containers & watch their syscalls with sysdig.
+
+If you instead want to only run sysdig to track syscalls, simply call
+```bash
+ $ ./run.sh --only-track dvwa-sql-app_victim_1
+```
 
 ## References
 The setup is heavily based on https://elk-docker.readthedocs.io/

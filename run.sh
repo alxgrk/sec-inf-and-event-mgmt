@@ -7,13 +7,17 @@ KIBANA_VERSION=7.2.0
 DUMMY_APP=pratikum-sec-inf-and-event-mgmt_dummy-app_1
 TRACKED_CONTAINER=${DUMMY_APP}
 TRACK_SYSCALLS=true
+ONLY_TRACK=false
 
 for PARAM in "$@"
 do
 
-    if [[ "--notrack" = "${PARAM}" ]]
+    if [[ "--no-track" = "${PARAM}" ]]
     then
         TRACK_SYSCALLS=false
+    elif [[ "--only-track" = "${PARAM}" ]]
+    then
+        ONLY_TRACK=true
     else
         TRACKED_CONTAINER=${PARAM}
     fi
@@ -52,24 +56,25 @@ main() {
     echo "add visualizations & dashboard: "
     curl --silent -w "\n" http://localhost:5601/api/saved_objects/_import?overwrite=true -H kbn-version:${KIBANA_VERSION} --form file=@dashboard_and_visualizations.ndjson
 
-    if [[ ${TRACK_SYSCALLS} = true ]]
+    [[ ${TRACK_SYSCALLS} = true ]] && track
+}
+
+track() {
+    echo "now running sysdig to log syscalls";
+
+    if [[ ${TRACKED_CONTAINER} = ${DUMMY_APP} ]]
     then
-        echo "now running sysdig to log syscalls";
-
-        if [[ ${TRACKED_CONTAINER} = ${DUMMY_APP} ]]
-        then
-            echo "query the dummy app every 500ms"
-            trap "kill 0" EXIT
-            while true; do curl --silent localhost:8080 > /dev/null; sleep 0.5; done &
-        fi
-
-        # log syscalls:
-        #  * that are done by tracked container
-        #  * in JSON format (-j)
-        #  * replace port numbers by names were possible (-R, e.g. mysql port)
-        #  * encode binary data as base64 (-b, e.g. evt.info.data field)
-        sudo sysdig -bRj -s 1000 -pc container.name=${TRACKED_CONTAINER} > logs/sysdig/syscalls.log
+        echo "query the dummy app every 500ms"
+        trap "kill 0" EXIT
+        while true; do curl --silent localhost:8080 > /dev/null; sleep 0.5; done &
     fi
+
+    # log syscalls:
+    #  * that are done by tracked container
+    #  * in JSON format (-j)
+    #  * replace port numbers by names were possible (-R, e.g. mysql port)
+    #  * encode binary data as base64 (-b, e.g. evt.info.data field)
+    sudo sysdig -bRj -s 1000 -pc container.name=${TRACKED_CONTAINER} > logs/sysdig/syscalls.log
 }
 
 sanity_checks() {
@@ -93,4 +98,9 @@ sanity_checks() {
 }
 
 sanity_checks
-main
+if [[ ${ONLY_TRACK} = true ]]
+then
+    track
+else
+    main
+fi
