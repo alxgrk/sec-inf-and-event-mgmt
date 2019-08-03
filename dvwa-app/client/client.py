@@ -144,11 +144,15 @@ def follow_link():
             if not any(e in link_url for e in exclude_links):
                 link_list.append(link)
                 logging.info('%d. %s', len(link_list)-1, link_url)
-    # randomly select one link to follow
-    i = np.random.randint(0, high=len(link_list))
-    logging.info('    selected: [%d] of %d links', i, len(link_list))
-    selected_link = link_list[i]
-    selected_link.click()
+    if len(link_list) == 0:
+        logging.info('    no link found, returning to index.php')
+        browser.get('http://' + args.server_ip + '/index.php')
+    else:
+        # randomly select one link to follow
+        i = np.random.randint(0, high=len(link_list))
+        logging.info('    selected: [%d] of %d links', i, len(link_list))
+        selected_link = link_list[i]
+        selected_link.click()
 
 
 def log_in():
