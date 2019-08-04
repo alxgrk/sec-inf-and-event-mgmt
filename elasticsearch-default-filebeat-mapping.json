@@ -96,6 +96,19 @@
           }
         }
       },
+      "error": {
+        "properties": {
+          "message": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      },
       "evt": {
         "properties": {
           "cpu": {
@@ -176,6 +189,15 @@
                 }
               },
               "dev": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "dirfd": {
                 "type": "text",
                 "fields": {
                   "keyword": {
@@ -482,6 +504,15 @@
                 }
               },
               "size": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "sourceip": {
                 "type": "text",
                 "fields": {
                   "keyword": {

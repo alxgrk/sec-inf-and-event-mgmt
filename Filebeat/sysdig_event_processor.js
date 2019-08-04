@@ -28,4 +28,17 @@ function process(event) {
       }
     })
   }
+
+  // get source ip for "accept"
+  if (event.Get("evt.type") === "accept") {
+    var rawTuple = event.Get("evt.infoExpanded.tuple")
+    if (rawTuple) {
+      var ipPattern = /^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/
+      var srcIp = rawTuple.match(ipPattern)[0]
+      if (srcIp) {
+          event.Put("evt.infoExpanded.sourceip", srcIp)
+      }
+    }
+  }
+
 }
