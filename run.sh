@@ -5,6 +5,7 @@
 # default values
 KIBANA_VERSION=7.2.0
 DUMMY_APP=pratikum-sec-inf-and-event-mgmt_dummy-app_1
+DVWA=dvwa-app_victim_1
 TRACKED_CONTAINER=${DUMMY_APP}
 TRACK_SYSCALLS=true
 ONLY_TRACK=false
@@ -25,7 +26,11 @@ do
 done
 
 main() {
-    docker-compose -f ./dvwa-app/docker-compose.yml up -d --build --scale attacker=0
+
+    if [[ ${TRACKED_CONTAINER} = ${DVWA} ]]
+    then
+        docker-compose -f ./dvwa-app/docker-compose.yml up -d --build --scale attacker=0
+    fi
 
     docker-compose up -d --build
     # waiting for ELK to be up and running
